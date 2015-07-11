@@ -21,7 +21,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  * @author TIH
  */
 public class FileUploadServlet extends HttpServlet {
-private final String UPLOAD_DIRECTORY = "C:/uploads";
+private final String UPLOAD_DIRECTORY = "files//";
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -48,7 +48,7 @@ private final String UPLOAD_DIRECTORY = "C:/uploads";
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+            int geekid = Integer.parseInt(request.getParameter("geekid"));
         if (ServletFileUpload.isMultipartContent(request)) {
             try {
 
@@ -58,9 +58,9 @@ private final String UPLOAD_DIRECTORY = "C:/uploads";
 
                     if (!item.isFormField()) {
                         
-                        String name = new File(item.getName()).getName();
+                       File file = new File(item.getName());
 
-                        item.write(new File(UPLOAD_DIRECTORY + File.separator + name));
+                        item.write(new File(UPLOAD_DIRECTORY + File.separator ));
 
                     }
 
