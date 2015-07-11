@@ -57,12 +57,11 @@ private final String UPLOAD_DIRECTORY = "files//";
                 for (FileItem item : multiparts) {
 
                     if (!item.isFormField()) {
-                        
-                       File file = new File(item.getName());
-
-                        item.write(new File(UPLOAD_DIRECTORY + File.separator ));
+                        item.write(new File(UPLOAD_DIRECTORY + File.separator + "image" + geekid + ".jpg"));
 
                     }
+                    
+                    String fileName = UPLOAD_DIRECTORY + File.separator + "image" + geekid + ".jpg";
 
                 }
 
